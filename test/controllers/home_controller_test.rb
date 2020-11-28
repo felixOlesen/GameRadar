@@ -14,8 +14,8 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
       assert_response :success
       assert_template layout: 'application'
       assert_select 'title', 'Game Radar'
-      assert_select 'div', 'Contact Us'
-      assert_select'div', 'Complete the following form to get in touch with us.'
+      assert_select 'h1', 'Contact Us'
+      assert_select 'p', 'Complete the following form to get in touch with us.'
   end
 
 end
