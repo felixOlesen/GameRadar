@@ -30,4 +30,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+    app_title: Game Radar
+    app_description: A place to see the latest video game releases
