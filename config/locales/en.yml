@@ -32,3 +32,7 @@
 en:
     app_title: Game Radar
     app_description: A place to see the latest video game releases
+    home:
+        home:
+            title: Game Radar
+            welcome: Welcome to the ultimate Game Release Radar!
