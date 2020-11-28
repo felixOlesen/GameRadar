@@ -40,3 +40,15 @@ en:
         contact:
             title: Contact Us
             contact_us: Complete the following form to get in touch with us.
+
+            name: "Name:"
+            enter_name: Enter your name
+            email: "Email:"
+            enter_email: Enter your email
+            message: "Message:"
+            enter_message: What would you like to say?
+            submit: Contact Us
+            
+        request_contact:
+            no_email: You must supply an email address
+            email_sent: Thank you. We will be in touch shortly.
