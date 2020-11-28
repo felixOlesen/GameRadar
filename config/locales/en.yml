@@ -36,3 +36,7 @@ en:
         home:
             title: Game Radar
             welcome: Welcome to the ultimate Game Release Radar!
+
+        contact:
+            title: Contact Us
+            contact_us: Complete the following form to get in touch with us.
