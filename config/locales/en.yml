@@ -52,3 +52,9 @@ en:
         request_contact:
             no_email: You must supply an email address
             email_sent: Thank you. We will be in touch shortly.
+    shared:
+        header:
+            games: Games
+            forums: Forums
+            logIn_signUp: Log In
+            contact_us: Contact Us
