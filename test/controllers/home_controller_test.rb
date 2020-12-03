@@ -5,7 +5,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     get root_url
     assert_select'title', 'Game Radar'
     assert_select'div', 'Game Radar'
-    assert_select'div', 'Welcome to the ultimate Game Release Radar!'
+    assert_select'div', 'Welcome to the ultimate video game forum!'
     assert_response :success
   end
 
