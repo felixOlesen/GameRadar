@@ -41,6 +41,8 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'modernizr-rails'
 gem 'jquery-rails'
 gem 'rails-controller-testing'
+gem 'giantbomb-api', '~> 1.6.0'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

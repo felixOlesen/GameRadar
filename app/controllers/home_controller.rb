@@ -17,4 +17,15 @@ class HomeController < ApplicationController
     end
   redirect_to root_path
   end
+
+  def gb_search
+      puts giantbomb_service.game_search("Need for speed")
+  end
+
+  private
+    def giantbomb_service
+        @gb_service ||= GiantBombService.new
+    end
+
+
 end
