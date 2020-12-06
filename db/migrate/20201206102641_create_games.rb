@@ -1,7 +1,7 @@
 class CreateGames < ActiveRecord::Migration[5.2]
   def change
     create_table :games do |t|
-      t.string :name
+      t.string :name, null: false
       t.text :deck
       t.datetime :og_release_date
       t.integer :expected_release_day
@@ -9,7 +9,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.integer :expected_release_year
       t.string :platforms
       t.string :image
-      t.integer :gb_id
+      t.integer :gb_id, null: false
 
       t.timestamps
     end
