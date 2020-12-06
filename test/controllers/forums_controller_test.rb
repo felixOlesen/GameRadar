@@ -11,7 +11,7 @@ class ForumsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_forum_url
+    get new_forum_url(game_id: @forum.game_id)
     assert_response :success
   end
 

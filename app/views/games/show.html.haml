@@ -27,6 +27,7 @@
 %p
   %b Gb:
   = @game.gb_id
+%p= link_to 'Add Forum', new_forum_path(game_id: @game)
 
 = link_to 'Edit', edit_game_path(@game)
 \|

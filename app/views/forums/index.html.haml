@@ -13,7 +13,7 @@
   %tbody
     - @forums.each do |forum|
       %tr
-        %td= forum.game
+        %td= forum.game.name
         %td= forum.title
         %td= forum.entry
         %td= link_to 'Show', forum

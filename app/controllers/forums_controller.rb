@@ -1,5 +1,6 @@
 class ForumsController < ApplicationController
   before_action :set_forum, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: [:new, :create]
 
   # GET /forums
   # GET /forums.json
@@ -14,7 +15,7 @@ class ForumsController < ApplicationController
 
   # GET /forums/new
   def new
-    @forum = Forum.new
+    @forum = @game.forums.new
   end
 
   # GET /forums/1/edit
@@ -24,7 +25,7 @@ class ForumsController < ApplicationController
   # POST /forums
   # POST /forums.json
   def create
-    @forum = Forum.new(forum_params)
+    @forum = @game.forums.new(forum_params)
 
     respond_to do |format|
       if @forum.save
@@ -65,6 +66,10 @@ class ForumsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_forum
       @forum = Forum.find(params[:id])
+    end
+
+    def set_game
+        @game = Game.find_by(id:params[:game_id]) || Game.find(forum_params[:game_id])
     end
 
     # Only allow a list of trusted parameters through.

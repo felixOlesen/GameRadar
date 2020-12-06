@@ -8,7 +8,8 @@
 
   .field
     = f.label :game
-    = f.text_field :game
+    %p= @forum.game.name
+    = f.hidden_field :game_id, value: @forum.game.id
   .field
     = f.label :title
     = f.text_field :title
