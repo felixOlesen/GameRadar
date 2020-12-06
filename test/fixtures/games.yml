@@ -20,4 +20,4 @@ two:
   expected_release_year: 1
   platforms: MyString
   image: MyString
-  gb_id: 1
+  gb_id: 2

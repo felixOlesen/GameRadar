@@ -17,7 +17,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create game" do
     assert_difference('Game.count') do
-      post games_url, params: { game: { deck: @game.deck, expected_release_day: @game.expected_release_day, expected_release_month: @game.expected_release_month, expected_release_year: @game.expected_release_year, gb_id: @game.gb_id, image: @game.image, name: @game.name, og_release_date: @game.og_release_date, platforms: @game.platforms } }
+      post games_url, params: { game: { deck: @game.deck, expected_release_day: @game.expected_release_day, expected_release_month: @game.expected_release_month, expected_release_year: @game.expected_release_year, gb_id: 0, image: @game.image, name: @game.name, og_release_date: @game.og_release_date, platforms: @game.platforms } }
     end
 
     assert_redirected_to game_url(Game.last)
