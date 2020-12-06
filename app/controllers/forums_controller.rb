@@ -58,6 +58,7 @@ class ForumsController < ApplicationController
     @forum.destroy
     respond_to do |format|
       format.html { redirect_to forums_url, notice: 'Forum was successfully destroyed.' }
+      format.js {flash[:notice] = 'Forum was successfully destroyed.'}
       format.json { head :no_content }
     end
   end

@@ -27,6 +27,18 @@
 %p
   %b Gb:
   = @game.gb_id
+
+%p Forum Posts:
+%table
+  %tbody
+    - @game.forums.each do |forum|
+      %tr{id: "forum_#{forum.id}"}
+        %td= forum.title
+        %td= link_to 'Show', forum
+        %td= link_to 'Edit', edit_forum_path(forum)
+        %td= link_to 'Destroy', forum, :method => :delete, :data => { :confirm => 'Are your sure?'}, :remote => true
+
+
 %p= link_to 'Add Forum', new_forum_path(game_id: @game)
 
 = link_to 'Edit', edit_game_path(@game)
