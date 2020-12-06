@@ -1,5 +1,5 @@
 class Game < ApplicationRecord
-    validates :name, presence: true
-    validates :gb_id, presence: true
+    has_many :forums, dependent: :destroy
+    validates :name, :gb_id, presence: true
     validates :gb_id, uniqueness: true
 end
