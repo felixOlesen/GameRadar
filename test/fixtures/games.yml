@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  deck: MyText
+  og_release_date: 2020-12-06 10:26:41
+  expected_release_day: 1
+  expected_release_month: 1
+  expected_release_year: 1
+  platforms: MyString
+  image: MyString
+  gb_id: 1
+
+two:
+  name: MyString
+  deck: MyText
+  og_release_date: 2020-12-06 10:26:41
+  expected_release_day: 1
+  expected_release_month: 1
+  expected_release_year: 1
+  platforms: MyString
+  image: MyString
+  gb_id: 1

@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @game.name
+%p
+  %b Deck:
+  = @game.deck
+%p
+  %b Og release date:
+  = @game.og_release_date
+%p
+  %b Expected release day:
+  = @game.expected_release_day
+%p
+  %b Expected release month:
+  = @game.expected_release_month
+%p
+  %b Expected release year:
+  = @game.expected_release_year
+%p
+  %b Platforms:
+  = @game.platforms
+%p
+  %b Image:
+  = @game.image
+%p
+  %b Gb:
+  = @game.gb_id
+
+= link_to 'Edit', edit_game_path(@game)
+\|
+= link_to 'Back', games_path

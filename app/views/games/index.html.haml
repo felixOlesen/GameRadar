@@ -1,0 +1,37 @@
+%h1 Listing games
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Deck
+      %th Og release date
+      %th Expected release day
+      %th Expected release month
+      %th Expected release year
+      %th Platforms
+      %th Image
+      %th Gb
+      %th
+      %th
+      %th
+
+  %tbody
+    - @games.each do |game|
+      %tr
+        %td= game.name
+        %td= game.deck
+        %td= game.og_release_date
+        %td= game.expected_release_day
+        %td= game.expected_release_month
+        %td= game.expected_release_year
+        %td= game.platforms
+        %td= game.image
+        %td= game.gb_id
+        %td= link_to 'Show', game
+        %td= link_to 'Edit', edit_game_path(game)
+        %td= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Game', new_game_path
