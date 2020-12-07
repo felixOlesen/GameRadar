@@ -9,7 +9,7 @@
 %p
   %b Entry:
   = @forum.entry
-
-= link_to 'Edit', edit_forum_path(@forum)
+- if @forum.user_id == current_user.id
+  = link_to 'Edit', edit_forum_path(@forum)
 \|
 = link_to 'Back', forums_path
