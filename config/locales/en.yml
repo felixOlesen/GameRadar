@@ -30,11 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-    app_title: Game Radar
+    app_title: Game Forums
     app_description: A place to talk about all of the latest video games.
     home:
         home:
-            title: Game Radar
+            title: Game Forums
             welcome: Welcome to the ultimate video game forum!
 
         contact:
@@ -56,5 +56,5 @@ en:
         header:
             games: Games
             forums: Forums
-            logIn_signUp: Log In
+            home: Home
             contact_us: Contact Us

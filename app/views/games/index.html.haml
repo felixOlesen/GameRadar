@@ -1,17 +1,14 @@
-%h1 Listing games
+%h1 Game Database
 
-%table
+%table.table.table-hover
   %thead
     %tr
+      %th
       %th Name
       %th Deck
-      %th Og release date
-      %th Expected release day
-      %th Expected release month
-      %th Expected release year
+      %th Original Release Date
+      %th Expected Release Date
       %th Platforms
-      %th Image
-      %th Gb
       %th
       %th
       %th
@@ -19,19 +16,17 @@
   %tbody
     - @games.each do |game|
       %tr
+        %td
+          %img{:height=>"300px", :width => "200px", :src => game.image}
         %td= game.name
         %td= game.deck
         %td= game.og_release_date
-        %td= game.expected_release_day
-        %td= game.expected_release_month
-        %td= game.expected_release_year
+        %td= game.expected_release_year.to_s + "-" + game.expected_release_month.to_s + "-" + game.expected_release_day.to_s
         %td= game.platforms
-        %td= game.image
-        %td= game.gb_id
-        %td= link_to 'Show', game
+        %td.btn.btn-danger.btn-xs= link_to 'Show', game
         - if current_user.id == 1
-          %td= link_to 'Edit', edit_game_path(game)
-          %td= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }
+          %td.btn.btn-danger.btn-xs= link_to 'Edit', edit_game_path(game)
+          %td.btn.btn-danger.btn-xs= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 - if current_user.id == 1

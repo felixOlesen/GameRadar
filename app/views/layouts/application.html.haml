@@ -14,12 +14,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = javascript_include_tag 'modernizr'
     = csrf_meta_tags
+  #wrap
+    %body
+      = render "shared/header"
 
-  %body
+      = yield
 
-
-    = render "shared/header"
-
-    = yield
-
+  .container-fluid.text-center
     = render "shared/footer"

@@ -10,6 +10,6 @@
   %b Entry:
   = @forum.entry
 - if @forum.user_id == current_user.id
-  = link_to 'Edit', edit_forum_path(@forum)
+  .btn.btn-danger.btn-xs= link_to 'Edit', edit_forum_path(@forum)
 \|
-= link_to 'Back', forums_path
+.btn.btn-danger.btn-xs= link_to 'Back', forums_path

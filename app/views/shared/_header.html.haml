@@ -1,24 +1,26 @@
 %header
-    %nav.navbar.fixed-top.navbar-expand-lg{:style => "background-color: #590004;border-radius: 0px;"}
+    %nav.navbar.fixed-top.navbar-expand-lg{:style => "background-color: #590004; border-radius: 0px;"}
         %ul.navbar-nav.mr-auto.no-bullets.nav
             %li.nav-item
-                %a.navbar-brand.nav-link.nav-it{:href => "/"}= t('.games')
+                %a.navbar-brand.nav-link.nav-it{:href => "/"}= t('.home')
             %li.nav-item
-                %a.navbar-brand.nav-link.nav-it{:href => "#"}= t('.forums')
+                %a.navbar-brand.nav-link.nav-it{:href => "/forums"}= t('.forums')
             %li.nav-item
-                %a.navbar-brand.nav-link.nav-it{:href => "#"}= t('.logIn_signUp')
+                %a.navbar-brand.nav-link.nav-it{:href => "/games"}= t('.games')
             %li.nav-item
                 %a.navbar-brand.nav-link.nav-it{:href => "/contact"}= t('.contact_us')
+        %ul.navbar-nav.mr-auto.no-bullets.nav.navbar-right
             %li.nav-item
                 -if user_signed_in?
-                    = "#{current_user.email} |"
-                    = link_to t('profile'), edit_user_registration_path
-                    = '|'
-                    = link_to t('logout'), destroy_user_session_path, method: 'delete'
+                    %li.nav-item
+                        .navbar-brand= link_to t('profile'), edit_user_registration_path
+                    %li.nav-item
+                        .navbar-brand= link_to t('logout'), destroy_user_session_path, method: 'delete'
                 -else
-                    = link_to t('login'), new_user_session_path
-                    = '|'
-                    = link_to t('sign_up'), new_user_registration_path
+                    %li.nav-item
+                        .navbar-brand= link_to t('login'), new_user_session_path
+                    %li.nav-item
+                        .navbar-brand= link_to t('sign_up'), new_user_registration_path
 
 - flash.each do |key, value|
     = content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank?

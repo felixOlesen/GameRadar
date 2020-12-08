@@ -33,15 +33,15 @@
   %tbody
     - @game.forums.each do |forum|
       %tr{id: "forum_#{forum.id}"}
-        %td= forum.title
-        %td= link_to 'Show', forum
+        %td.btn.btn-danger.btn-xs= forum.title
+        %td.btn.btn-danger.btn-xs= link_to 'Show', forum
         - if forum.user_id == current_user.id
-          %td= link_to 'Edit', edit_forum_path(forum)
-          %td= link_to 'Destroy', forum, :method => :delete, :data => { :confirm => 'Are your sure?'}, :remote => true
+          %td.btn.btn-danger.btn-xs= link_to 'Edit', edit_forum_path(forum)
+          %td.btn.btn-danger.btn-xs= link_to 'Destroy', forum, :method => :delete, :data => { :confirm => 'Are your sure?'}, :remote => true
 
 
-%p= link_to 'Add Forum', new_forum_path(game_id: @game)
+%p.btn.btn-danger.btn-xs= link_to 'Add Forum', new_forum_path(game_id: @game)
 - if current_user.id == 1
-  = link_to 'Edit', edit_game_path(@game)
+  .btn.btn-danger.btn-xs= link_to 'Edit', edit_game_path(@game)
 \|
-= link_to 'Back', games_path
+.btn.btn-danger.btn-xs= link_to 'Back', games_path
