@@ -6,3 +6,27 @@ form label, form input {
     display: block;
     margin: 10px;
 }
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_bar {
+    width: 400px !important;
+}
+
+.input_width{
+    margin: 3px;
+    width: auto;
+}
+.flex_column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+}

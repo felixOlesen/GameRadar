@@ -7,7 +7,7 @@ class GiantBombService
         @search.offset(3)
         @search.limit(10) # max 100
         @search.resources('game')
-        @search.fields('name')
+        @search.fields('id')
         @search.query(name)
         return @search.fetch
     end

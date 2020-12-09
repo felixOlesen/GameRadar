@@ -1,1 +1,31 @@
-%p test
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+      %th Name
+      %th Deck
+      %th Original Release Date
+      %th Expected Release Date
+      %th Platforms
+      %th
+      %th
+      %th
+
+  %tbody
+    - @id_arr.each do |element|
+      - game = Game.where(:gb_id => element.values_at("id")[0]).first
+      - puts game
+      %tr
+        %td
+          %img{:height=>"300px", :width => "200px", :src => game.image}
+        %td= game.name
+        %td= game.deck
+        %td= game.og_release_date
+        %td= game.expected_release_year.to_s + "-" + game.expected_release_month.to_s + "-" + game.expected_release_day.to_s
+        %td= game.platforms
+        %td.btn.btn-danger.btn-xs= link_to 'Show', game
+        - if current_user.id == 1
+          %td.btn.btn-danger.btn-xs= link_to 'Edit', edit_game_path(game)
+          %td.btn.btn-danger.btn-xs= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br

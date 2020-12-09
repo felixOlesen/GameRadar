@@ -1,4 +1,8 @@
-%div.row
-    %div.col-sm-2.h4.text-center= t('.title')
-    %div.col-sm-2.lead.text-center= "hello"
-    %div.col-sm-2.p.text-center= t('.welcome')
+.flex_column
+  %h2 Welcome!
+  %h4 Please search for any game you want to talk about.
+  %form.form-inline{:action => search_path}
+    .row.center
+      %input.form-control.input_width.search_bar{"aria-label" => "Search", :placeholder => "Search for a game", :type => "search", :name => "search_games"}
+    .row.center
+      %button.btn.btn-outline-success.input_width{:type => "submit"} Search
