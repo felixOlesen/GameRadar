@@ -1,39 +1,35 @@
-
-
-%p
-  %b Name:
+%h1
   = @game.name
-%p
-  %b Deck:
-  = @game.deck
-%p
-  %b Og release date:
-  = @game.og_release_date
-%p
-  %b Expected release day:
-  = @game.expected_release_day
-%p
-  %b Expected release month:
-  = @game.expected_release_month
-%p
-  %b Expected release year:
-  = @game.expected_release_year
-%p
-  %b Platforms:
-  = @game.platforms
-%p
-  %b Image:
-  = @game.image
-%p
-  %b Gb:
-  = @game.gb_id
+%table.table
+  %tr
+    %td
+      %p
+        %img{:height=>"300px", :width => "200px", :src => @game.image}
+    %td
+      %p
+        %b Deck:
+        = @game.deck
+      %p
+        %b Original release date:
+        -if @game.og_release_date == nil
+          = "--"
+        -else
+          = @game.og_release_date
+      %p
+        %b Expected release date:
+        = @game.expected_release_year.to_s + "-" + @game.expected_release_month.to_s + "-" + @game.expected_release_day.to_s
+      %p
+        %b Platforms:
+        = @game.platforms
 
-%p Forum Posts:
-%table
+
+%h3 Forum Posts:
+%table.table
   %tbody
     - @game.forums.each do |forum|
       %tr{id: "forum_#{forum.id}"}
-        %td.btn.btn-danger.btn-xs= forum.title
+        %td= forum.title
+        %td= forum.entry
         %td.btn.btn-danger.btn-xs= link_to 'Show', forum
         - if forum.user_id == current_user.id
           %td.btn.btn-danger.btn-xs= link_to 'Edit', edit_forum_path(forum)

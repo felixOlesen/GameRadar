@@ -53,11 +53,12 @@ before_action :authenticate_user!, only:[:gb_search]
         g_image = g_image[0]
         g_id = t_game.id
 
-
-        t_game.platforms.each_with_index do |item, index|
-            g_platforms += item.values_at("name")[0]
-            if index != t_game.platforms.length()-1
-                g_platforms += " / "
+        if t_game.platforms != nil
+            t_game.platforms.each_with_index do |item, index|
+                g_platforms += item.values_at("name")[0]
+                if index != t_game.platforms.length()-1
+                    g_platforms += " / "
+                end
             end
         end
 
