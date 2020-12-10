@@ -33,9 +33,30 @@ en:
     app_title: Game Forums
     app_description: A place to talk about all of the latest video games.
     home:
+        show: Show
+        edit: Edit
+        destroy: Destroy
+        back: Back
+        confirmation: Are you sure?
+        error: error
+        form: form
+
         home:
             title: Game Forums
-            welcome: Welcome to the ultimate video game forum!
+            welcome: Welcome!
+            search_for: Please search for any game you want to talk about.
+            already: If the game you're searching for isn't already in the database,
+            inside: it will be added when you press the search button.
+            search_upper: Search
+            search_for_game: Search for a game
+            search_lower: search
+            search_games: search_games
+            submit: submit
+
+        gb_search:
+            search_results: "Search Results:"
+
+
 
         contact:
             title: Contact Us
@@ -52,6 +73,50 @@ en:
         request_contact:
             no_email: You must supply an email address
             email_sent: Thank you. We will be in touch shortly.
+    games:
+        add_forum: Add Forum
+        forum_posts: "Forum Posts:"
+        name: Name
+        deck: Deck
+        ogrd: Original Release Date
+        erd: Expected Release Date
+        platforms: Platforms
+        prohibited: "prohibited this game from being saved:"
+        save: Save
+        created_success: Game was successfully created.
+        updated_success: Game was successfully updated.
+        destroyed_success: Game was successfully destroyed.
+        new:
+            new_game: New game
+        index:
+            all_games: "All Games:"
+        edit:
+            editing_game: Editing Game
+    forums:
+        game: Game
+        title: Title
+        date: Date
+        created_success: Forum was successfully created.
+        updated_success: Forum was successfully updated.
+        destroyed_success: Forum was successfully destroyed.
+        index:
+            all_posts: "All Forum Posts:"
+
+        show:
+            game: "Game:"
+        new:
+            new_forum: New Forum Post
+        edit:
+            editing: Editing Forum
+
+    contact_mailer:
+        contact_email:
+            email: "Email:"
+            name: "Name:"
+            dear: Dear
+            in_touch: Could you get in touch with me please?
+            thanks: Thanks,
+
     shared:
         header:
             games: Games

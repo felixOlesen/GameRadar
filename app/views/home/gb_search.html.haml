@@ -1,13 +1,13 @@
-%h2 Search Results:
+%h2= t(".search_results")
 %table.table.table-hover
   %thead
     %tr
       %th
-      %th Name
-      %th Deck
-      %th Original Release Date
-      %th Expected Release Date
-      %th Platforms
+      %th= t("games.name")
+      %th= t("games.deck")
+      %th= t("games.ogrd")
+      %th= t("games.erd")
+      %th= t("games.platforms")
       %th
       %th
       %th
@@ -24,9 +24,9 @@
         %td= game.og_release_date
         %td= game.expected_release_year.to_s + "-" + game.expected_release_month.to_s + "-" + game.expected_release_day.to_s
         %td= game.platforms
-        %td.btn.btn-danger.btn-xs= link_to 'Show', game
+        %td.btn.btn-danger.btn-xs= link_to t("home.show"), game
         - if current_user.id == 1
-          %td.btn.btn-danger.btn-xs= link_to 'Edit', edit_game_path(game)
-          %td.btn.btn-danger.btn-xs= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }
+          %td.btn.btn-danger.btn-xs= link_to t("home.edit"), edit_game_path(game)
+          %td.btn.btn-danger.btn-xs= link_to t("home.destroy"), game, method: :delete, data: { confirm: t("home.confirmation") }
 
   %br

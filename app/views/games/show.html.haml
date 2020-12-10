@@ -7,37 +7,37 @@
         %img{:height=>"300px", :width => "200px", :src => @game.image}
     %td
       %p
-        %b Deck:
+        %b= t("games.deck")
         = @game.deck
       %p
-        %b Original release date:
+        %b= t("games.ogrd")
         -if @game.og_release_date == nil
           = "--"
         -else
           = @game.og_release_date
       %p
-        %b Expected release date:
+        %b= t("games.erd")
         = @game.expected_release_year.to_s + "-" + @game.expected_release_month.to_s + "-" + @game.expected_release_day.to_s
       %p
-        %b Platforms:
+        %b= t("games.platforms")
         = @game.platforms
 
 
-%h3 Forum Posts:
+%h3= t(".forum_posts")
 %table.table
   %tbody
     - @game.forums.each do |forum|
       %tr{id: "forum_#{forum.id}"}
         %td= forum.title
         %td= forum.entry
-        %td.btn.btn-danger.btn-xs= link_to 'Show', forum
+        %td.btn.btn-danger.btn-xs= link_to t("home.show"), forum
         - if forum.user_id == current_user.id
-          %td.btn.btn-danger.btn-xs= link_to 'Edit', edit_forum_path(forum)
-          %td.btn.btn-danger.btn-xs= link_to 'Destroy', forum, :method => :delete, :data => { :confirm => 'Are your sure?'}, :remote => true
+          %td.btn.btn-danger.btn-xs= link_to t("home.edit"), edit_forum_path(forum)
+          %td.btn.btn-danger.btn-xs= link_to t("home.destroy"), forum, :method => :delete, :data => { :confirm => t("home.confirmation")}, :remote => true
 
 
-%p.btn.btn-danger.btn-xs= link_to 'Add Forum', new_forum_path(game_id: @game)
+%p.btn.btn-danger.btn-xs= link_to t("home.add_forum"), new_forum_path(game_id: @game)
 - if current_user.id == 1
-  .btn.btn-danger.btn-xs= link_to 'Edit', edit_game_path(@game)
+  .btn.btn-danger.btn-xs= link_to t("home.edit"), edit_game_path(@game)
 \|
-.btn.btn-danger.btn-xs= link_to 'Back', games_path
+.btn.btn-danger.btn-xs= link_to t("home.back"), games_path

@@ -31,7 +31,7 @@ class ForumsController < ApplicationController
 
     respond_to do |format|
       if @forum.save
-        format.html { redirect_to @forum, notice: 'Forum was successfully created.' }
+        format.html { redirect_to @forum, notice: I18n.t("forums.created_success") }
         format.json { render :show, status: :created, location: @forum }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ForumsController < ApplicationController
   def update
     respond_to do |format|
       if @forum.update(forum_params)
-        format.html { redirect_to @forum, notice: 'Forum was successfully updated.' }
+        format.html { redirect_to @forum, notice: I18n.t("forums.updated_success") }
         format.json { render :show, status: :ok, location: @forum }
       else
         format.html { render :edit }
@@ -59,8 +59,8 @@ class ForumsController < ApplicationController
   def destroy
     @forum.destroy
     respond_to do |format|
-      format.html { redirect_to forums_url, notice: 'Forum was successfully destroyed.' }
-      format.js {flash[:notice] = 'Forum was successfully destroyed.'}
+      format.html { redirect_to forums_url, notice: I18n.t("forums.destroyed_success") }
+      format.js {flash[:notice] = I18n.t("forums.destroyed_success")}
       format.json { head :no_content }
     end
   end

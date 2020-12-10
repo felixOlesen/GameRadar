@@ -1,5 +1,6 @@
-%h1 New game
+.edit_indent
+    %h1= t(".new_game")
 
-= render 'form'
+    = render 'form'
 
-.btn.btn-danger.btn-xs= link_to 'Back', games_path
+    .btn.btn-danger.btn-xs= link_to t("home.back"), games_path

@@ -1,7 +1,7 @@
 = form_for @forum do |f|
   - if @forum.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@forum.errors.count, "error")} prohibited this forum from being saved:"
+      %h2= "#{pluralize(@forum.errors.count, t("home.error"))}" + t("games.prohibited")
       %ul
         - @forum.errors.full_messages.each do |message|
           %li= message
@@ -17,4 +17,4 @@
     = f.label :entry
     = f.text_area :entry
   .actions
-    = f.submit 'Save'
+    = f.submit t("games.save")

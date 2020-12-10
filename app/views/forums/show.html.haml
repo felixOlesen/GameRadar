@@ -1,15 +1,16 @@
+.show_container
+  %p
+    %b= t(".game")
+    = @forum.game.name
 
+  %h3
+    %b
+    = @forum.title
 
-%p
-  %b Game:
-  = @forum.game.name
-%p
-  %b Title:
-  = @forum.title
-%p
-  %b Entry:
-  = @forum.entry
-- if @forum.user_id == current_user.id
-  .btn.btn-danger.btn-xs= link_to 'Edit', edit_forum_path(@forum)
-\|
-.btn.btn-danger.btn-xs= link_to 'Back', forums_path
+  %h5
+    %b
+    = @forum.entry
+  - if @forum.user_id == current_user.id
+    .btn.btn-danger.btn-xs= link_to t("home.edit"), edit_forum_path(@forum)
+    \|
+    .btn.btn-danger.btn-xs= link_to t("home.back"), forums_path

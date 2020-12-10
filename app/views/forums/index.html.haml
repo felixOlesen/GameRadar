@@ -1,25 +1,26 @@
-%h1 All Forum Posts:
+%h1= t(".all_posts")
 
 %table.table.table-hover
   %thead
     %tr
       %th
-      %th Game
-      %th Title
-      %th Date
+      %th= t("forums.game")
+      %th= t("forums.title")
+      %th= t("forums.date")
       %th
       %th
 
   %tbody
     - @forums.each do |forum|
       %tr
-        %td
-          %img{:height=>"300px", :width => "200px", :src => forum.game.image}
-        %td= forum.game.name
-        %td= forum.title
-        %td= forum.created_at
+        %tr
+          %td
+            %img{:height=>"75px", :width => "50px", :src => forum.game.image}
+          %td= forum.game.name
+          %td= forum.title
+          %td= forum.created_at
 
-        %td.btn.btn-danger.btn-xs= link_to 'Show', forum
-        - if forum.user_id == current_user.id
-          %td.btn.btn-danger.btn-xs= link_to 'Edit', edit_forum_path(forum)
-          %td.btn.btn-danger.btn-xs= link_to 'Destroy', forum, method: :delete, data: { confirm: 'Are you sure?' }
+          %td.btn.btn-danger.btn-xs= link_to t("home.show"), forum
+          - if forum.user_id == current_user.id
+            %td.btn.btn-danger.btn-xs= link_to t("home.edit"), edit_forum_path(forum)
+            %td.btn.btn-danger.btn-xs= link_to t("home.destroy"), forum, method: :delete, data: { confirm: t("home.confirmation") }

@@ -1,7 +1,8 @@
-%h1 Editing game
+.edit_indent
+    %h1= t(".editing_game")
 
-= render 'form'
+    = render t("home.form")
 
-.btn.btn-danger.btn-xs= link_to 'Show', @game
-\|
-.btn.btn-danger.btn-xs= link_to 'Back', games_path
+    .btn.btn-danger.btn-xs= link_to t("home.show"), @game
+    \|
+    .btn.btn-danger.btn-xs= link_to t("home.back"), games_path

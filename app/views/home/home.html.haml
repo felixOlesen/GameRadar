@@ -1,16 +1,16 @@
 .flex_column
-  %h2 Welcome!
-  %h4 Please search for any game you want to talk about.
+  %h2= t(".welcome")
+  %h4= t(".search_for")
   %br
   %br
   %form.form-inline{:action => search_path}
     .row.center
-      %input.form-control.input_width.search_bar{"aria-label" => "Search", :placeholder => "Search for a game", :type => "search", :name => "search_games"}
+      %input.form-control.input_width.search_bar{"aria-label" => t(".search_upper"), :placeholder => t(".search_for_game"), :type => t(".search_lower"), :name => t(".search_games")}
     .row.center
-      %button.btn.btn-outline-success.input_width{:type => "submit"} Search
+      %button.btn.btn-outline-success.input_width{:type => t(".submit")}= t(".search_upper")
   %br
   %br
   %br
   %br
-  %h4 If the game you're searching for isn't already in the database,
-  %h4 it will be added when you press the search button.
+  %h4= t(".already")
+  %h4= t(".inside")

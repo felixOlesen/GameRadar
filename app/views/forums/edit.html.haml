@@ -1,7 +1,8 @@
-%h1 Editing forum
+.edit_indent
+    %h1= t(".editing")
 
-= render 'form'
+    = render t("home.form")
 
-.btn.btn-danger.btn-xs= link_to 'Show', @forum
-\|
-.btn.btn-danger.btn-xs= link_to 'Back', forums_path
+    .btn.btn-danger.btn-xs= link_to t("home.show"), @forum
+    \|
+    .btn.btn-danger.btn-xs= link_to t("home.back"), forums_path
