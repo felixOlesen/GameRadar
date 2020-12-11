@@ -20,15 +20,17 @@ before_action :authenticate_user!, only:[:gb_search]
   end
 
   def gb_search
-      puts giantbomb_service.game_search(params[:search_games])
-      @id_arr = giantbomb_service.game_search(params[:search_games])
-      @id_arr.each do |element|
-          single_id = element.values_at("id")[0]
-          if Game.where(:gb_id => single_id).blank?
-              add_giantbomb_games(single_id)
+      if params[:search_games] != nil 
+          @id_arr = giantbomb_service.game_search(params[:search_games])
+          @id_arr.each do |element|
+              single_id = element.values_at("id")[0]
+              if Game.where(:gb_id => single_id).blank?
+                  add_giantbomb_games(single_id)
+              end
           end
+      else
+          redirect_to games_path
       end
-
   end
 
   private
