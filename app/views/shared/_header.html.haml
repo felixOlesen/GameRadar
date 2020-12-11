@@ -2,13 +2,13 @@
     %nav.navbar.fixed-top.navbar-expand-lg{:style => "background-color: #590004; border-radius: 0px;"}
         %ul.navbar-nav.mr-auto.no-bullets.nav
             %li.nav-item
-                %a.navbar-brand.nav-link.nav-it{:href => "/"}= t('.home')
+                %a.navbar-brand.nav-link.nav-it{:href => root_path}= t('.home')
             %li.nav-item
-                %a.navbar-brand.nav-link.nav-it{:href => "/forums"}= t('.forums')
+                %a.navbar-brand.nav-link.nav-it{:href => forums_path}= t('.forums')
             %li.nav-item
-                %a.navbar-brand.nav-link.nav-it{:href => "/games"}= t('.games')
+                %a.navbar-brand.nav-link.nav-it{:href => games_path}= t('.games')
             %li.nav-item
-                %a.navbar-brand.nav-link.nav-it{:href => "/contact"}= t('.contact_us')
+                %a.navbar-brand.nav-link.nav-it{:href => contact_path}= t('.contact_us')
         %ul.navbar-nav.mr-auto.no-bullets.nav.navbar-right
             %li.nav-item
                 -if user_signed_in?
