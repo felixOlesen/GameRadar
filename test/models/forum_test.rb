@@ -56,6 +56,20 @@ class ForumTest < ActiveSupport::TestCase
       refute forum.valid?
   end
 
+  test 'should destroy forum with game' do
+      forum = Forum.new
+      forum.title = 'My Forum'
+      forum.entry = 'Forum entry sample'
+      forum.game = @game
+      forum.user = @user
+      forum.save
+      @game.destroy
+
+      refute Forum.exists?(forum.id)
+
+
+  end
+
 
 
 end
