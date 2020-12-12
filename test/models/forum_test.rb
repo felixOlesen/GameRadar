@@ -66,10 +66,7 @@ class ForumTest < ActiveSupport::TestCase
       @game.destroy
 
       refute Forum.exists?(forum.id)
-
-
   end
-
-
+  
 
 end

@@ -56,4 +56,10 @@ class ForumsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to forums_url
   end
+
+  test 'should redirect to login' do
+      delete destroy_user_session_url
+      get forums_path
+      assert_redirected_to new_user_session_url
+  end
 end
