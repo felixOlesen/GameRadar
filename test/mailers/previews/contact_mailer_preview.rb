@@ -4,3 +4,4 @@ class ContactMailerPreview < ActionMailer::Preview
         ContactMailer.contact_email("matthew@me.com", "Matthew Casey", @message = "Hello")
     end
 end
+ 

@@ -6,4 +6,9 @@ class ContactMailerTest < ActionMailer::TestCase
       assert_equal ['info@gameRadar.com'], mail.to
       assert_equal ['info@gameRadar.com'], mail.from
   end
+
+  test "should return contact message" do
+      mail = ContactMailer.contact_email("matthew@me.com", "Matthew Casey", @message = "Hello")
+      assert_equal "Hello", @message
+  end
 end

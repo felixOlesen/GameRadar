@@ -12,13 +12,18 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get games_url
     assert_response :success
+    assert_select'h1', "All Games:"
+    assert_select'th', "Name"
+    assert_select'th', "Original Release Date"
+    assert_select'th', "Expected Release Date"
+    assert_select'th', "Platforms"
   end
 
   test "should get new" do
     get new_game_url
     assert_response :success
   end
- 
+
   test "should create game" do
     assert_difference('Game.count') do
       post games_url, params: { game: { deck: @game.deck, expected_release_day: @game.expected_release_day, expected_release_month: @game.expected_release_month, expected_release_year: @game.expected_release_year, gb_id: 0, image: @game.image, name: @game.name, og_release_date: @game.og_release_date, platforms: @game.platforms } }

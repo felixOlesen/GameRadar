@@ -10,9 +10,10 @@ class ForumTest < ActiveSupport::TestCase
       @user = users(:one)
   end
 
-  test 'should not save empty forum' do
+  test 'should not save without title' do
       forum = Forum.new
       forum.user = @user
+      forum.entry = 'Forum entry sample'
       forum.save
       refute forum.valid?
   end
@@ -27,4 +28,34 @@ class ForumTest < ActiveSupport::TestCase
       forum.save
       assert forum.valid?
   end
+
+  test 'should not save without user' do
+      forum = Forum.new
+      forum.title = 'My Forum'
+      forum.entry = 'Forum entry sample'
+      forum.game = @game
+      forum.save
+      refute forum.valid?
+  end
+
+  test 'should not save without entry' do
+      forum = Forum.new
+      forum.title = 'My Forum'
+      forum.game = @game
+      forum.user = @user
+      forum.save
+      refute forum.valid?
+  end
+
+  test 'should not save without game' do
+      forum = Forum.new
+      forum.title = 'My Forum'
+      forum.entry = 'Forum entry sample'
+      forum.user = @user
+      forum.save
+      refute forum.valid?
+  end
+
+
+
 end

@@ -6,8 +6,6 @@ include Devise::Test::IntegrationHelpers
   test "should get home" do
     get root_url
     assert_select'title', 'Game Forums'
-    assert_select'h2', 'Welcome!'
-    assert_select'h4', 'Please search for any game you want to talk about.'
     assert_select'h4', "If the game you're searching for isn't already in the database,"
     assert_select'h4', "it will be added when you press the search button."
     assert_response :success
@@ -17,7 +15,7 @@ include Devise::Test::IntegrationHelpers
     get '/users/sign_in'
     sign_in users(:one)
     post user_session_url
-    get search_path, params: {search_games: "test"}
+    get search_path, params: {search_games: " "}
     assert_response :success
     assert_select'h2', "Search Results:"
     assert_select'th', "Name"
@@ -31,7 +29,7 @@ include Devise::Test::IntegrationHelpers
       get '/users/sign_in'
       sign_in users(:one)
       post user_session_url
-      get search_path
+      get search_path, params: {search_games: ""}
       assert_redirected_to games_path
   end
 

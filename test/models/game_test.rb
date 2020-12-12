@@ -1,12 +1,17 @@
 require 'test_helper'
 
 class GameTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
-  test 'should not save empty game' do
+  test 'should not save game without name' do
       game = Game.new
+      game.gb_id = 0
+      game.save
+      refute game.valid?
+  end
+
+  test 'should not save game without gb_id' do
+      game = Game.new
+      game.name = 'My Game'
       game.save
       refute game.valid?
   end

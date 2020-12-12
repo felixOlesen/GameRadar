@@ -34,6 +34,7 @@ en:
     app_description: A place to talk about all of the latest video games.
     home:
         show: Show
+        add_forum: Create Post
         edit: Edit
         destroy: Destroy
         back: Back
@@ -43,8 +44,6 @@ en:
 
         home:
             title: Game Forums
-            welcome: Welcome!
-            search_for: Please search for any game you want to talk about.
             already: If the game you're searching for isn't already in the database,
             inside: it will be added when you press the search button.
             search_upper: Search
@@ -74,7 +73,7 @@ en:
             no_email: You must supply an email address
             email_sent: Thank you. We will be in touch shortly.
     games:
-        add_forum: Add Forum
+        add_forum: Create Post
         forum_posts: "Forum Posts:"
         name: Name
         deck: Deck
@@ -120,6 +119,6 @@ en:
     shared:
         header:
             games: Games
-            forums: Forums
+            forums: Posts
             home: Home
             contact_us: Contact Us

@@ -20,7 +20,7 @@ before_action :authenticate_user!, only:[:gb_search]
   end
 
   def gb_search
-      if params[:search_games] != nil 
+      if params[:search_games] != "" 
           @id_arr = giantbomb_service.game_search(params[:search_games])
           @id_arr.each do |element|
               single_id = element.values_at("id")[0]
