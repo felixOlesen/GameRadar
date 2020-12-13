@@ -1,5 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+#Game one
 one:
   name: MyString
   deck: MyText
@@ -11,6 +11,7 @@ one:
   image: MyString
   gb_id: 1
 
+#Game two
 two:
   name: MyString
   deck: MyText

@@ -31,6 +31,7 @@
         %td= forum.title
         %td= forum.entry
         %td.btn.btn-danger.btn-xs= link_to t("home.show"), forum
+        //only allows users to edit the post if they created it
         - if forum.user_id == current_user.id
           %td.btn.btn-danger.btn-xs= link_to t("home.edit"), edit_forum_path(forum)
           %td.btn.btn-danger.btn-xs= link_to t("home.destroy"), forum, :method => :delete, :data => { :confirm => t("home.confirmation")}, :remote => true

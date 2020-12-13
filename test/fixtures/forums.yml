@@ -1,11 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+#Forum one
 one:
   user_id: 1
   game: one
   title: MyString
   entry: MyText
 
+#Forum two
 two:
   user_id: 2
   game: two

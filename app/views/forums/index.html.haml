@@ -19,7 +19,8 @@
           %td= forum.game.name
           %td= forum.title
           %td= forum.created_at
-
+          //displays edit and destroy buttons only if user id is equal to one
+          //The account with user id one is considered an administrator
           %td.btn.btn-danger.btn-xs= link_to t("home.show"), forum
           - if forum.user_id == current_user.id
             %td.btn.btn-danger.btn-xs= link_to t("home.edit"), edit_forum_path(forum)

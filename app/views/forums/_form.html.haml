@@ -5,7 +5,7 @@
       %ul
         - @forum.errors.full_messages.each do |message|
           %li= message
-
+          
   .field
     = f.label :game
     %p= @forum.game.name

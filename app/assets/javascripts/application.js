@@ -19,12 +19,16 @@
 //= require turbolinks
 //= require_tree .
 
+
+//Loads functions after pages
 $(document).on('turbolinks:load', function() {
+    //Function to hide haml tags with the "hide_class" class.
     $('#contact_button').click(function(event){
         $('.hide_class').hide();
         event.preventDefault();
     });
 
+    //Used in forums index page to expand images when hovering over them.
     $(".hover_expand").hover(function(){
       $(this).css("width", "125px");
       $(this).css("height", "125px");

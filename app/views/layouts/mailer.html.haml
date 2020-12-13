@@ -4,5 +4,28 @@
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
     :css
       /* Email styles need to be inline */
+
+      p, dt{
+          font:'Times New Roman', 'Times', serif;
+          color: rgba(39, 41, 43, 0.75);
+          font-size: 20px;
+          animation-name: dark_fade;
+          animation-duration: 1s;
+      }
+      .in_message{
+          margin-left: 30px;
+          color: #27292B;
+          animation-name: move_text;
+          animation-duration: 1s;
+      }
+      /*Sets animations on page load for basic html tags*/
+      @keyframes move_text {
+          0%   {margin-left: 0px;}
+          100% {margin-left: 30px;}
+      }
+      @keyframes dark_fade {
+          0%   {color:rgba(39, 41, 43, 1)}
+          100% {color:rgba(39, 41, 43, 0.75)}
+      }
   %body
     = yield

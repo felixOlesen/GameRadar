@@ -19,10 +19,6 @@ class ForumsController < ApplicationController
     @forum = @game.forums.new
   end
 
-  # GET /forums/1/edit
-  def edit
-  end
-
   # POST /forums
   # POST /forums.json
   def create
@@ -71,6 +67,7 @@ class ForumsController < ApplicationController
       @forum = Forum.find(params[:id])
     end
 
+    #Sets the game for forum
     def set_game
         @game = Game.find_by(id:params[:game_id]) || Game.find(forum_params[:game_id])
     end

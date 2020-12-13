@@ -10,6 +10,7 @@
   %h5
     %b
     = @forum.entry
+  //only allows users to edit the post if they created it
   - if @forum.user_id == current_user.id
     .btn.btn-danger.btn-xs= link_to t("home.edit"), edit_forum_path(@forum)
     \|

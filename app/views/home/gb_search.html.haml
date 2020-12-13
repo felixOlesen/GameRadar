@@ -24,6 +24,8 @@
         %td= game.og_release_date
         %td= game.expected_release_year.to_s + "-" + game.expected_release_month.to_s + "-" + game.expected_release_day.to_s
         %td= game.platforms
+        //displays edit and destroy buttons only if user id is equal to one
+        //The account with user id one is considered an administrator
         %td.btn.btn-danger.btn-xs= link_to t("home.show"), game
         - if current_user.id == 1
           %td.btn.btn-danger.btn-xs= link_to t("home.edit"), edit_game_path(game)

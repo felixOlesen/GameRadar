@@ -122,3 +122,5 @@ en:
             forums: Posts
             home: Home
             contact_us: Contact Us
+        footer:
+            powered: Powered by GiantBomb API

@@ -2,25 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+//Main styling for search bar and help messages
 form label, form input {
     display: block;
     margin-top: 10px;
 }
 
+/*Centers items within container*/
 .center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/*Sets search bar width*/
 .search_bar {
     width: 400px !important;
 }
+
 
 .input_width{
     margin: 3px;
     width: auto;
 }
+
+/*Centers all items vertially vertially and horizontally within body*/
 .flex_column {
     display: flex;
     flex-direction: column;
