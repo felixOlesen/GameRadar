@@ -18,7 +18,7 @@ A Ruby on Rails web application for discovering and discussing video games. Game
 
 | Layer | Technology |
 |---|---|
-| Language | Ruby 2.6.3 |
+| Language | Ruby 2.7.5 |
 | Framework | Rails 5.2.4 |
 | Database | SQLite3 |
 | Templating | HAML |
@@ -32,29 +32,29 @@ A Ruby on Rails web application for discovering and discussing video games. Game
 
 ## Prerequisites
 
-> **Note on Ruby version:** This project requires **Ruby 2.6.3**, which is end-of-life. Your system Ruby is likely newer. The recommended approach is to install a version manager so you can run 2.6.3 in isolation without touching your system Ruby.
+> **Note on Ruby version:** This project requires **Ruby 2.7.5**, which is end-of-life. Your system Ruby is likely newer. The recommended approach is to install a version manager so you can run 2.7.5 in isolation without touching your system Ruby.
 
-### Install Ruby 2.6.3
+### Install Ruby 2.7.5
 
 **Option A — rbenv (recommended)**
 
 ```bash
 # Install rbenv (macOS with Homebrew)
 brew install rbenv ruby-build
-rbenv install 2.6.3
+rbenv install 2.7.5
 # rbenv will pick up the .ruby-version file automatically
 ```
 
 **Option B — rvm**
 
 ```bash
-rvm install 2.6.3
-rvm use 2.6.3
+rvm install 2.7.5
+rvm use 2.7.5
 ```
 
 **Option C — system Ruby**
 
-If your system Ruby is already 2.6.x you can proceed, but be aware gem conflicts with other projects are likely.
+If your system Ruby is already 2.7.x you can proceed, but be aware gem conflicts with other projects are likely.
 
 ### Other dependencies
 
@@ -173,7 +173,7 @@ rails test test/models/game_test.rb
 
 ## Known Issues & Compatibility Notes
 
-- **Ruby 2.6.3 is EOL** — the bundled gems (`puma ~> 3.11`, `listen < 3.2`, `chromedriver-helper`) are pinned to versions compatible with this Ruby. Do not upgrade them without also upgrading Ruby and Rails.
+- **Ruby 2.7.5 is EOL** — several gems (`puma`, `sqlite3`, `nokogiri`, `nio4r`, `ffi`, `mini_racer`) are pinned to versions compatible with Ruby 2.7 and Apple Silicon. Do not loosen these constraints without also upgrading Ruby.
 - **`chromedriver-helper` is deprecated** — if you encounter ChromeDriver issues with newer versions of Chrome, replace it with `webdrivers` in the `Gemfile` (`gem 'webdrivers'` in the `:test` group).
 - **GiantBomb API rate limits** — the free API tier has rate limits. Seeding the full `db/seeds.rb` file (15 games) may occasionally fail if requests are made too quickly.
 - **Asset pipeline** — this project uses Sprockets (Rails 5.2 default), not Webpacker. JavaScript is served via `coffee-rails` and `jquery-rails`.
