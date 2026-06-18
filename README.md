@@ -1,6 +1,30 @@
 # GameRadar
 
+![Ruby](https://img.shields.io/badge/Ruby-2.7.5-CC342D?logo=ruby&logoColor=white)
+![Rails](https://img.shields.io/badge/Rails-5.2.4-CC0000?logo=rubyonrails&logoColor=white)
+![SQLite](https://img.shields.io/badge/Database-SQLite3-003B57?logo=sqlite&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
+
 A Ruby on Rails web application for discovering and discussing video games. GameRadar integrates with the [GiantBomb API](https://www.giantbomb.com/api/) to let users search a massive games database, save titles to their personal library, and post forum discussions on any game.
+
+<!-- Add a screenshot or GIF of the app here. Example:
+![GameRadar screenshot](docs/screenshot.png)
+-->
+
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [GiantBomb API Key](#giantbomb-api-key)
+  - [Running with Docker](#running-with-docker-recommended)
+  - [Manual Setup](#manual-setup)
+- [Application Structure](#application-structure)
+- [Testing](#testing)
+- [Known Issues & Compatibility Notes](#known-issues--compatibility-notes)
+- [Contact](#contact)
 
 ---
 
@@ -30,16 +54,61 @@ A Ruby on Rails web application for discovering and discussing video games. Game
 
 ---
 
-## Prerequisites
+## Getting Started
 
-> **Note on Ruby version:** This project requires **Ruby 2.7.5**, which is end-of-life. Your system Ruby is likely newer. The recommended approach is to install a version manager so you can run 2.7.5 in isolation without touching your system Ruby.
+### GiantBomb API Key
 
-### Install Ruby 2.7.5
+The app requires a free GiantBomb API key to search and import games.
+
+1. Register at [giantbomb.com/api](https://www.giantbomb.com/api/) to get your key.
+2. Create a `.env` file in the project root:
+
+   ```
+   GIANTBOMB_API_KEY=your_api_key_here
+   ```
+
+The key is loaded via `dotenv-rails` and consumed in `config/initializers/giantbomb.rb`.
+
+---
+
+### Running with Docker (Recommended)
+
+Docker is the easiest way to run GameRadar — it handles Ruby 2.7.5, all system dependencies, and database setup automatically.
+
+**Prerequisite:** [Docker Desktop](https://www.docker.com/products/docker-desktop/) (includes Docker Compose)
+
+1. Create your `.env` file with your GiantBomb API key (see above).
+
+2. Build and start the app:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   The first run installs all gems and builds the image — subsequent starts are much faster. The container automatically runs `db:create` and `db:migrate` before starting the server.
+
+3. Visit [http://localhost:3000](http://localhost:3000).
+
+To stop the app press `Ctrl+C`, or run `docker-compose down` to remove the containers entirely.
+
+> [!TIP]
+> Code changes are reflected immediately — the project directory is mounted into the container, so you don't need to rebuild after editing files.
+
+---
+
+### Manual Setup
+
+> [!WARNING]
+> This project requires **Ruby 2.7.5**, which is end-of-life. The recommended approach is Docker (above). If you need to run without Docker, use a version manager to install 2.7.5 in isolation.
+
+<details>
+<summary><strong>Expand manual setup instructions</strong></summary>
+
+#### Install Ruby 2.7.5
 
 **Option A — rbenv (recommended)**
 
 ```bash
-# Install rbenv (macOS with Homebrew)
 brew install rbenv ruby-build
 rbenv install 2.7.5
 # rbenv will pick up the .ruby-version file automatically
@@ -54,31 +123,16 @@ rvm use 2.7.5
 
 **Option C — system Ruby**
 
-If your system Ruby is already 2.7.x you can proceed, but be aware gem conflicts with other projects are likely.
+If your system Ruby is already 2.7.x you can proceed, but gem conflicts with other projects are likely.
 
-### Other dependencies
+#### Other dependencies
 
 - **Bundler** — `gem install bundler`
 - **SQLite3** — usually pre-installed on macOS; on Linux: `sudo apt install sqlite3 libsqlite3-dev`
 - **Node.js** — required by the `mini_racer` gem for asset compilation (`brew install node` or via [nvm](https://github.com/nvm-sh/nvm))
-- **ChromeDriver** — required for system tests (`brew install chromedriver` or via the `chromedriver-helper` gem, which handles this automatically)
+- **ChromeDriver** — required for system tests (`brew install chromedriver` or via the `chromedriver-helper` gem)
 
-### GiantBomb API key
-
-The app requires a free GiantBomb API key to search and import games.
-
-1. Register at [giantbomb.com/api](https://www.giantbomb.com/api/) to get your key.
-2. Create a `.env` file in the project root:
-
-```
-GIANTBOMB_API_KEY=your_api_key_here
-```
-
-The key is loaded via `dotenv-rails` and consumed in `config/initializers/giantbomb.rb`.
-
----
-
-## Setup
+#### Setup
 
 ```bash
 # 1. Clone the repository
@@ -89,19 +143,16 @@ cd GameRadar
 bundle install
 
 # 3. Configure your API key (see above)
-cp .env.example .env   # if provided, otherwise create .env manually
+cp .env.example .env   # or create .env manually
 
 # 4. Create and migrate the database
 rails db:create db:migrate
 
-# 5. (Optional) Seed the database with sample games from GiantBomb
-#    Requires a valid GIANTBOMB_API_KEY in .env
+# 5. (Optional) Seed with sample games from GiantBomb
 rails db:seed
 ```
 
----
-
-## Running the App
+#### Run
 
 ```bash
 rails server
@@ -109,7 +160,10 @@ rails server
 
 Visit [http://localhost:3000](http://localhost:3000).
 
+> [!NOTE]
 > The search page (`/search`) requires a user account. Register at `/users/sign_up`.
+
+</details>
 
 ---
 
@@ -151,21 +205,14 @@ Forum
 
 ## Testing
 
-Run the full test suite:
-
 ```bash
+# Full test suite
 rails test
-```
 
-Run system tests (requires ChromeDriver and a running browser):
-
-```bash
+# System tests (requires ChromeDriver and a running browser)
 rails test:system
-```
 
-Run a specific test file:
-
-```bash
+# Single file
 rails test test/models/game_test.rb
 ```
 
@@ -173,10 +220,17 @@ rails test test/models/game_test.rb
 
 ## Known Issues & Compatibility Notes
 
-- **Ruby 2.7.5 is EOL** — several gems (`puma`, `sqlite3`, `nokogiri`, `nio4r`, `ffi`, `mini_racer`) are pinned to versions compatible with Ruby 2.7 and Apple Silicon. Do not loosen these constraints without also upgrading Ruby.
-- **`chromedriver-helper` is deprecated** — if you encounter ChromeDriver issues with newer versions of Chrome, replace it with `webdrivers` in the `Gemfile` (`gem 'webdrivers'` in the `:test` group).
-- **GiantBomb API rate limits** — the free API tier has rate limits. Seeding the full `db/seeds.rb` file (15 games) may occasionally fail if requests are made too quickly.
-- **Asset pipeline** — this project uses Sprockets (Rails 5.2 default), not Webpacker. JavaScript is served via `coffee-rails` and `jquery-rails`.
+> [!WARNING]
+> **Ruby 2.7.5 is EOL** — several gems (`puma`, `sqlite3`, `nokogiri`, `nio4r`, `ffi`, `mini_racer`) are pinned to versions compatible with Ruby 2.7 and Apple Silicon. Do not loosen these constraints without also upgrading Ruby.
+
+> [!NOTE]
+> **`chromedriver-helper` is deprecated** — if you encounter ChromeDriver issues with newer Chrome versions, replace it with `webdrivers` in the `Gemfile` (`gem 'webdrivers'` in the `:test` group).
+
+> [!NOTE]
+> **GiantBomb API rate limits** — the free tier has rate limits. Seeding the full `db/seeds.rb` file (15 games) may occasionally fail if requests are made too quickly.
+
+> [!NOTE]
+> **Asset pipeline** — this project uses Sprockets (Rails 5.2 default), not Webpacker. JavaScript is served via `coffee-rails` and `jquery-rails`.
 
 ---
 
